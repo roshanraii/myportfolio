@@ -206,7 +206,7 @@ const EDUCATION = [
   {
     year: "2021",
     degree: "Master of Computer Applications (MCA)",
-    inst: "J.C Bose University",
+    inst: "J.C Bose University Of Science And Technology",
     loc: "Faridabad, IN",
     detail:
       "Focused on advanced algorithms, system design, and distributed computing. Thesis on web performance optimization.",
