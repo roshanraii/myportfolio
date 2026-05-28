@@ -1,66 +1,78 @@
 import { useState, useEffect, useRef } from "react";
 
-/* ─── THEMES (CSS custom property values) ────────────────────────────────── */
+/* ─── THEMES ─────────────────────────────────────────────────────────────── */
 const THEMES = {
   obsidian: {
     name: "Obsidian",
-    dot: "#7c6aff",
-    "--bg": "#0a0a0f",
-    "--surface": "#111118",
-    "--card": "#16161f",
-    "--border": "#252535",
-    "--accent": "#7c6aff",
-    "--accent-rgb": "124,106,255",
-    "--accent-lt": "#a99cff",
-    "--text": "#e8e8f0",
-    "--muted": "#7070a0",
-    "--tag": "#1e1e30",
-    "--tag-text": "#a99cff",
+    dot: "#a78bfa",
+    "--bg": "#0d0d0d",
+    "--page": "#0d0d0d",
+    "--card": "#1a1a1a",
+    "--border": "#ffffff",
+    "--accent": "#a78bfa",
+    "--accent-rgb": "167,139,250",
+    "--accent-fg": "#0d0d0d",
+    "--text": "#ffffff",
+    "--muted": "#a0a0a0",
+    "--tag": "#2a2a2a",
+    "--tag-text": "#a78bfa",
+    "--shadow": "5px 5px 0px #a78bfa",
+    "--shadow-sm": "3px 3px 0px #a78bfa",
+    "--shadow-inv": "5px 5px 0px #ffffff",
   },
   ember: {
     name: "Ember",
-    dot: "#f97316",
-    "--bg": "#0d0905",
-    "--surface": "#130e08",
-    "--card": "#1a1208",
-    "--border": "#2e2010",
-    "--accent": "#f97316",
-    "--accent-rgb": "249,115,22",
-    "--accent-lt": "#fdba74",
-    "--text": "#f0e8e0",
-    "--muted": "#9a7a60",
-    "--tag": "#2a1a08",
-    "--tag-text": "#fdba74",
+    dot: "#fb923c",
+    "--bg": "#0f0a00",
+    "--page": "#0f0a00",
+    "--card": "#1c1200",
+    "--border": "#ffffff",
+    "--accent": "#fb923c",
+    "--accent-rgb": "251,146,60",
+    "--accent-fg": "#0f0a00",
+    "--text": "#fff8f0",
+    "--muted": "#a0896a",
+    "--tag": "#241800",
+    "--tag-text": "#fb923c",
+    "--shadow": "5px 5px 0px #fb923c",
+    "--shadow-sm": "3px 3px 0px #fb923c",
+    "--shadow-inv": "5px 5px 0px #fff8f0",
   },
   arctic: {
     name: "Arctic",
-    dot: "#0070f3",
-    "--bg": "#f0f4f8",
-    "--surface": "#ffffff",
+    dot: "#2563eb",
+    "--bg": "#f0f4ff",
+    "--page": "#f0f4ff",
     "--card": "#ffffff",
-    "--border": "#d8e4ef",
-    "--accent": "#0070f3",
-    "--accent-rgb": "0,112,243",
-    "--accent-lt": "#3d9aff",
+    "--border": "#0f172a",
+    "--accent": "#2563eb",
+    "--accent-rgb": "37,99,235",
+    "--accent-fg": "#ffffff",
     "--text": "#0f172a",
-    "--muted": "#64748b",
-    "--tag": "#e0eeff",
-    "--tag-text": "#0070f3",
+    "--muted": "#475569",
+    "--tag": "#dbeafe",
+    "--tag-text": "#1e40af",
+    "--shadow": "5px 5px 0px #2563eb",
+    "--shadow-sm": "3px 3px 0px #2563eb",
+    "--shadow-inv": "5px 5px 0px #0f172a",
   },
   sakura: {
     name: "Sakura",
     dot: "#f472b6",
-    "--bg": "#0f080d",
-    "--surface": "#170d14",
-    "--card": "#1e1119",
-    "--border": "#321828",
+    "--bg": "#0d0008",
+    "--page": "#0d0008",
+    "--card": "#1a0012",
+    "--border": "#ffffff",
     "--accent": "#f472b6",
     "--accent-rgb": "244,114,182",
-    "--accent-lt": "#f9a8d4",
-    "--text": "#f5e8ef",
-    "--muted": "#9a7090",
-    "--tag": "#2a1020",
-    "--tag-text": "#f9a8d4",
+    "--accent-fg": "#0d0008",
+    "--text": "#fff0f8",
+    "--muted": "#b07090",
+    "--tag": "#250018",
+    "--tag-text": "#f472b6",
+    "--shadow": "5px 5px 0px #f472b6",
+    "--shadow-sm": "3px 3px 0px #f472b6",
+    "--shadow-inv": "5px 5px 0px #fff0f8",
   },
 };
 
@@ -137,12 +149,12 @@ const EXPERIENCE = [
           {
             heading: "Enterprise Task Management Platform:",
             body: "Developed a high-performance interface using React and Tailwind CSS, implementing drag-and-drop workflows that increased operational efficiency by 25%.",
-            stat: "+25% efficiency",
+            stat: "+25%",
           },
           {
             heading: "Performance Optimization:",
             body: "Leveraged React-Query for server-state management, reducing redundant API calls by 40% and improving Time-to-Interactive (TTI) by 1.5s.",
-            stat: "−40% API calls",
+            stat: "−40% calls",
           },
           {
             heading: "Technical Leadership:",
@@ -156,13 +168,13 @@ const EXPERIENCE = [
         period: "Jan 2021 – Sept 2024",
         bullets: [
           {
-            heading: "Automotive Dealer Management Ecosystem:",
+            heading: "Automotive Dealer Management:",
             body: "Led the migration from a monolithic frontend to a Micro-frontend architecture, reducing deployment conflicts and shortening release cycles by 30%.",
-            stat: "−30% release time",
+            stat: "−30% cycles",
           },
           {
             heading: "Design System:",
-            body: "Engineered a standardized, Reusable Component Library ensuring 100% UI consistency across 5+ industrial modules and accelerating development speed by 20%.",
+            body: "Engineered a standardized Reusable Component Library ensuring 100% UI consistency across 5+ industrial modules and accelerating development speed by 20%.",
             stat: "100% consistency",
           },
           {
@@ -173,7 +185,7 @@ const EXPERIENCE = [
           {
             heading: "Awards:",
             body: "Recognized with the Nagarro Cheerboard (2023, 2024) for technical excellence and leadership in high-priority project deliveries.",
-            stat: "🏆 2023 & 2024",
+            stat: "🏆 ×2",
           },
         ],
       },
@@ -187,18 +199,18 @@ const PROJECTS = [
     subtitle: "Anonymous Sharing Platform",
     icon: "🔐",
     tech: ["React", "Node.js", "OAuth", "MongoDB"],
-    desc: "Developed a full-stack SPA featuring Google OAuth and encrypted data storage; successfully managed 100+ concurrent users during initial launch.",
+    desc: "Full-stack SPA featuring Google OAuth and encrypted data storage; managed 100+ concurrent users at launch.",
     detail:
-      "End-to-end encrypted secrets with Google OAuth 2.0, MongoDB Atlas backend, and real-time session management. Handles 100+ concurrent users at launch with zero data leakage.",
+      "End-to-end encrypted secrets with Google OAuth 2.0, MongoDB Atlas backend, and real-time session management. Zero data leakage at 100+ concurrent users.",
   },
   {
     title: "Library Management System",
     subtitle: "Full-Stack App",
     icon: "📚",
     tech: ["React", "Node.js", "AWS", "RDS", "S3", "SQS", "Lambda"],
-    desc: "Built a full-stack library management app with borrow/return tracking system and an admin dashboard for streamlined book and user management.",
+    desc: "Full-stack library app with borrow/return tracking system and admin dashboard for book and user management.",
     detail:
-      "Deployed on AWS Elastic Beanstalk (eu-north-1) with RDS MySQL in private subnets, S3 uploads, SQS/SNS fan-out, Lambda event processors, and GitHub Actions CI/CD pipeline.",
+      "Deployed on AWS Elastic Beanstalk (eu-north-1) with RDS MySQL, private subnets, S3 uploads, SQS/SNS fan-out, Lambda event processors, and GitHub Actions CI/CD.",
   },
 ];
 
@@ -206,10 +218,10 @@ const EDUCATION = [
   {
     year: "2021",
     degree: "Master of Computer Applications (MCA)",
-    inst: "J.C Bose University Of Science And Technology",
+    inst: "J.C Bose University of Science and technology",
     loc: "Faridabad, IN",
     detail:
-      "Focused on advanced algorithms, system design, and distributed computing. Thesis on web performance optimization.",
+      "Advanced algorithms, system design, distributed computing. Thesis on web performance optimization.",
   },
   {
     year: "2018",
@@ -259,7 +271,7 @@ function useInView(threshold = 0.1) {
     );
     if (ref.current) obs.observe(ref.current);
     return () => obs.disconnect();
-  }, [threshold]);
+  }, []);
   return [ref, visible];
 }
 
@@ -270,21 +282,25 @@ function Section({ id, title, children }) {
     <section
       id={id}
       ref={ref}
-      className="pt-16 md:pt-20"
+      className="pt-16 md:pt-24"
       style={{
         opacity: visible ? 1 : 0,
-        transform: visible ? "translateY(0)" : "translateY(28px)",
-        transition: "opacity 0.6s ease, transform 0.6s ease",
+        transform: visible ? "translateY(0)" : "translateY(32px)",
+        transition: "opacity 0.55s ease, transform 0.55s ease",
       }}
     >
-      <div className="flex items-center gap-3 mb-8 md:mb-10">
-        <span
-          className="h-[3px] w-7 rounded-sm flex-shrink-0"
-          style={{ background: "var(--accent)" }}
-        />
+      {/* Block-offset section title */}
+      <div className="mb-8 md:mb-10 inline-block">
         <h2
-          className="text-xl md:text-2xl font-extrabold tracking-tight"
-          style={{ color: "var(--text)", fontFamily: "'Syne', sans-serif" }}
+          className="text-lg md:text-xl font-black uppercase tracking-widest px-4 py-2 border-2"
+          style={{
+            color: "var(--accent-fg)",
+            background: "var(--accent)",
+            borderColor: "var(--border)",
+            boxShadow: "var(--shadow-inv)",
+            fontFamily: "'Space Grotesk', sans-serif",
+            letterSpacing: "0.12em",
+          }}
         >
           {title}
         </h2>
@@ -301,14 +317,14 @@ function Tag({ children }) {
     <span
       onMouseEnter={() => setHov(true)}
       onMouseLeave={() => setHov(false)}
-      className="inline-block rounded-md px-2.5 py-0.5 text-xs font-semibold cursor-default border transition-all duration-150 whitespace-nowrap"
+      className="inline-block px-2.5 py-0.5 text-[11px] font-bold uppercase border cursor-default transition-all duration-150 whitespace-nowrap tracking-wider"
       style={{
         background: hov ? "var(--accent)" : "var(--tag)",
-        color: hov ? "#fff" : "var(--tag-text)",
-        borderColor: hov ? "var(--accent)" : "var(--border)",
-        transform: hov ? "translateY(-2px) scale(1.04)" : "none",
-        boxShadow: hov ? "0 4px 12px rgba(var(--accent-rgb),0.3)" : "none",
-        fontFamily: "'JetBrains Mono', monospace",
+        color: hov ? "var(--accent-fg)" : "var(--tag-text)",
+        borderColor: "var(--border)",
+        boxShadow: hov ? "var(--shadow-sm)" : "2px 2px 0px var(--border)",
+        transform: hov ? "translate(-2px,-2px)" : "none",
+        fontFamily: "'Space Grotesk', sans-serif",
       }}
     >
       {children}
@@ -320,12 +336,12 @@ function Tag({ children }) {
 function ExpBullet({ heading, body, stat }) {
   const [on, setOn] = useState(false);
   return (
-    <li className="flex gap-2 mb-2 items-start">
+    <li className="flex gap-3 mb-3 items-start">
       <span
-        className="mt-1.5 flex-shrink-0 text-[9px]"
+        className="mt-1.5 flex-shrink-0 font-black text-xs"
         style={{ color: "var(--accent)" }}
       >
-        ▸
+        ▶
       </span>
       <div className="flex-1 min-w-0">
         <div className="flex items-start gap-2 flex-wrap">
@@ -334,7 +350,7 @@ function ExpBullet({ heading, body, stat }) {
             style={{ color: "var(--muted)" }}
           >
             {heading && (
-              <strong className="font-bold" style={{ color: "var(--text)" }}>
+              <strong className="font-black" style={{ color: "var(--text)" }}>
                 {heading}{" "}
               </strong>
             )}
@@ -343,13 +359,14 @@ function ExpBullet({ heading, body, stat }) {
           {stat && (
             <button
               onClick={() => setOn((o) => !o)}
-              className="flex-shrink-0 rounded-full px-3 py-0.5 text-[10.5px] font-semibold border cursor-pointer transition-all duration-150 whitespace-nowrap"
+              className="flex-shrink-0 px-2.5 py-0.5 text-[10px] font-black uppercase border cursor-pointer transition-all duration-150 tracking-widest"
               style={{
                 background: on ? "var(--accent)" : "var(--tag)",
-                color: on ? "#fff" : "var(--tag-text)",
-                borderColor: on ? "var(--accent)" : "var(--border)",
-                transform: on ? "scale(1.06)" : "scale(1)",
-                fontFamily: "'JetBrains Mono', monospace",
+                color: on ? "var(--accent-fg)" : "var(--tag-text)",
+                borderColor: "var(--border)",
+                boxShadow: on ? "none" : "2px 2px 0px var(--border)",
+                transform: on ? "translate(2px,2px)" : "none",
+                fontFamily: "'Space Grotesk', sans-serif",
               }}
             >
               {stat}
@@ -364,7 +381,9 @@ function ExpBullet({ heading, body, stat }) {
 /* ─── PROJECT CARD ───────────────────────────────────────────────────────── */
 function ProjectCard({ p }) {
   const [flipped, setFlipped] = useState(false);
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 500);
+  const [isMobile, setIsMobile] = useState(
+    typeof window !== "undefined" ? window.innerWidth < 500 : false,
+  );
   useEffect(() => {
     const fn = () => setIsMobile(window.innerWidth < 500);
     window.addEventListener("resize", fn);
@@ -374,24 +393,26 @@ function ProjectCard({ p }) {
   if (isMobile) {
     return (
       <div
-        className="rounded-xl mb-3 overflow-hidden border transition-colors duration-200"
+        className="mb-4 border-2 transition-all duration-150"
         style={{
           background: "var(--card)",
-          borderColor: flipped ? "var(--accent)" : "var(--border)",
+          borderColor: "var(--border)",
+          boxShadow: flipped ? "none" : "var(--shadow)",
+          transform: flipped ? "translate(5px,5px)" : "none",
         }}
       >
         <div
           onClick={() => setFlipped((f) => !f)}
           className="p-4 cursor-pointer"
         >
-          <div className="flex gap-3 items-center mb-2">
+          <div className="flex items-center gap-3 mb-3">
             <span className="text-2xl">{p.icon}</span>
             <div>
               <div
-                className="font-extrabold text-sm"
+                className="font-black text-sm uppercase tracking-wide"
                 style={{
                   color: "var(--text)",
-                  fontFamily: "'Syne', sans-serif",
+                  fontFamily: "'Space Grotesk', sans-serif",
                 }}
               >
                 {p.title}
@@ -404,7 +425,7 @@ function ProjectCard({ p }) {
               </div>
             </div>
           </div>
-          <div className="flex flex-wrap gap-1.5 mb-2">
+          <div className="flex flex-wrap gap-1.5 mb-3">
             {p.tech.map((tc) => (
               <Tag key={tc}>{tc}</Tag>
             ))}
@@ -416,25 +437,22 @@ function ProjectCard({ p }) {
             {p.desc}
           </p>
           <div
-            className="text-right mt-2 text-[10px]"
+            className="text-right mt-2 text-[10px] font-bold uppercase tracking-widest"
             style={{
-              color: "var(--muted)",
-              fontFamily: "'JetBrains Mono', monospace",
+              color: "var(--accent)",
+              fontFamily: "'Space Grotesk', sans-serif",
             }}
           >
-            {flipped ? "hide ▲" : "details ▼"}
+            {flipped ? "HIDE ▲" : "DETAILS ▼"}
           </div>
         </div>
         {flipped && (
           <div
-            className="px-4 pb-4 pt-3 border-t"
-            style={{
-              background: "rgba(var(--accent-rgb),0.07)",
-              borderColor: "var(--accent)",
-            }}
+            className="px-4 pb-4 pt-3 border-t-2"
+            style={{ background: "var(--tag)", borderColor: "var(--accent)" }}
           >
             <p
-              className="text-xs leading-relaxed italic"
+              className="text-xs leading-relaxed"
               style={{ color: "var(--text)" }}
             >
               {p.detail}
@@ -448,13 +466,13 @@ function ProjectCard({ p }) {
   return (
     <div
       onClick={() => setFlipped((f) => !f)}
-      className="cursor-pointer mb-4"
-      style={{ perspective: "900px" }}
+      className="cursor-pointer mb-5"
+      style={{ perspective: "1000px" }}
     >
       <div
         style={{
           position: "relative",
-          minHeight: 160,
+          minHeight: 170,
           transformStyle: "preserve-3d",
           transform: flipped ? "rotateY(180deg)" : "rotateY(0deg)",
           transition: "transform 0.5s cubic-bezier(0.4,0.2,0.2,1)",
@@ -462,28 +480,29 @@ function ProjectCard({ p }) {
       >
         {/* Front */}
         <div
-          className="absolute inset-0 rounded-xl p-5 border"
+          className="absolute inset-0 border-2 p-5"
           style={{
             backfaceVisibility: "hidden",
             WebkitBackfaceVisibility: "hidden",
             background: "var(--card)",
             borderColor: "var(--border)",
+            boxShadow: "var(--shadow)",
           }}
         >
-          <div className="flex gap-3 items-start mb-3">
+          <div className="flex gap-4 items-start mb-4">
             <span className="text-3xl flex-shrink-0">{p.icon}</span>
             <div>
               <div
-                className="font-extrabold text-base"
+                className="font-black text-base uppercase tracking-wide"
                 style={{
                   color: "var(--text)",
-                  fontFamily: "'Syne', sans-serif",
+                  fontFamily: "'Space Grotesk', sans-serif",
                 }}
               >
                 {p.title}
               </div>
               <div
-                className="text-[11px] font-bold uppercase tracking-widest mt-1"
+                className="text-[10px] font-bold uppercase tracking-widest mt-1"
                 style={{ color: "var(--accent)" }}
               >
                 {p.subtitle}
@@ -502,40 +521,42 @@ function ProjectCard({ p }) {
             {p.desc}
           </p>
           <div
-            className="text-right mt-2.5 text-[10px]"
+            className="text-right mt-3 text-[10px] font-bold uppercase tracking-widest"
             style={{
-              color: "var(--muted)",
-              fontFamily: "'JetBrains Mono', monospace",
+              color: "var(--accent)",
+              fontFamily: "'Space Grotesk', sans-serif",
             }}
           >
-            click to flip ↺
+            CLICK TO FLIP ↺
           </div>
         </div>
         {/* Back */}
         <div
-          className="absolute inset-0 rounded-xl p-5 border flex flex-col justify-center gap-3"
+          className="absolute inset-0 border-2 p-5 flex flex-col justify-center gap-4"
           style={{
             backfaceVisibility: "hidden",
             WebkitBackfaceVisibility: "hidden",
             transform: "rotateY(180deg)",
-            background: "rgba(var(--accent-rgb),0.08)",
-            borderColor: "var(--accent)",
+            background: "var(--accent)",
+            borderColor: "var(--border)",
+            boxShadow: "var(--shadow-inv)",
           }}
         >
           <p
-            className="text-sm leading-relaxed italic"
-            style={{ color: "var(--text)" }}
+            className="text-sm leading-relaxed font-semibold"
+            style={{ color: "var(--accent-fg)" }}
           >
             {p.detail}
           </p>
           <div
-            className="text-right text-[10px]"
+            className="text-right text-[10px] font-bold uppercase tracking-widest"
             style={{
-              color: "var(--muted)",
-              fontFamily: "'JetBrains Mono', monospace",
+              color: "var(--accent-fg)",
+              fontFamily: "'Space Grotesk', sans-serif",
+              opacity: 0.7,
             }}
           >
-            click to flip back ↺
+            CLICK TO FLIP BACK ↺
           </div>
         </div>
       </div>
@@ -548,51 +569,63 @@ function EduRow({ e }) {
   const [open, setOpen] = useState(false);
   return (
     <div
-      className="pl-4 mb-3 border-l-2 transition-colors duration-300"
-      style={{ borderColor: open ? "var(--accent)" : "var(--border)" }}
+      className="border-2 mb-3 transition-all duration-200"
+      style={{
+        borderColor: "var(--border)",
+        boxShadow: open ? "none" : "var(--shadow-sm)",
+        transform: open ? "translate(3px,3px)" : "none",
+        background: "var(--card)",
+      }}
     >
-      <div onClick={() => setOpen((o) => !o)} className="cursor-pointer">
-        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline gap-1">
-          <div className="flex flex-wrap gap-x-2.5 gap-y-0.5 items-baseline">
-            <span
-              className="text-xs font-bold min-w-[32px]"
-              style={{
-                color: "var(--accent)",
-                fontFamily: "'JetBrains Mono', monospace",
-              }}
-            >
-              {e.year}
-            </span>
-            <span
-              className="text-sm font-bold"
-              style={{ color: "var(--text)" }}
-            >
-              {e.degree}
-            </span>
-            <span className="text-sm" style={{ color: "var(--muted)" }}>
-              – {e.inst}
-            </span>
-          </div>
-          <div className="flex items-center gap-2 flex-shrink-0">
-            <span
-              className="text-[11px]"
-              style={{
-                color: "var(--muted)",
-                fontFamily: "'JetBrains Mono', monospace",
-              }}
-            >
-              {e.loc}
-            </span>
-            <span
-              className="text-sm inline-block transition-transform duration-200"
-              style={{
-                color: "var(--muted)",
-                transform: open ? "rotate(90deg)" : "none",
-              }}
-            >
-              ›
-            </span>
-          </div>
+      <div
+        onClick={() => setOpen((o) => !o)}
+        className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-1 p-3 sm:p-4 cursor-pointer"
+      >
+        <div className="flex flex-wrap gap-x-3 gap-y-0.5 items-baseline">
+          <span
+            className="text-xs font-black"
+            style={{
+              color: "var(--accent)",
+              fontFamily: "'Space Grotesk', sans-serif",
+            }}
+          >
+            {e.year}
+          </span>
+          <span
+            className="text-sm font-black"
+            style={{
+              color: "var(--text)",
+              fontFamily: "'Space Grotesk', sans-serif",
+            }}
+          >
+            {e.degree}
+          </span>
+          <span
+            className="text-xs font-semibold"
+            style={{ color: "var(--muted)" }}
+          >
+            — {e.inst}
+          </span>
+        </div>
+        <div className="flex items-center gap-3 flex-shrink-0">
+          <span
+            className="text-[11px] font-bold"
+            style={{
+              color: "var(--muted)",
+              fontFamily: "'Space Grotesk', sans-serif",
+            }}
+          >
+            {e.loc}
+          </span>
+          <span
+            className="text-sm font-black inline-block transition-transform duration-200"
+            style={{
+              color: "var(--accent)",
+              transform: open ? "rotate(90deg)" : "none",
+            }}
+          >
+            ›
+          </span>
         </div>
       </div>
       <div
@@ -604,7 +637,7 @@ function EduRow({ e }) {
         }}
       >
         <p
-          className="text-xs leading-relaxed italic mt-2"
+          className="px-3 sm:px-4 pb-3 text-xs leading-relaxed"
           style={{ color: "var(--muted)" }}
         >
           {e.detail}
@@ -621,34 +654,45 @@ function CertBadge({ c }) {
     <div
       onMouseEnter={() => setHov(true)}
       onMouseLeave={() => setHov(false)}
-      className="flex items-center gap-3 rounded-lg px-4 py-3 border mb-2 transition-all duration-200 cursor-default"
+      className="flex items-center gap-3 border-2 px-4 py-3 mb-3 cursor-default transition-all duration-150"
       style={{
-        background: hov ? "rgba(var(--accent-rgb),0.07)" : "var(--card)",
-        borderColor: hov ? "var(--accent)" : "var(--border)",
-        transform: hov ? "translateX(5px)" : "none",
+        background: hov ? "var(--accent)" : "var(--card)",
+        borderColor: "var(--border)",
+        boxShadow: hov ? "none" : "var(--shadow-sm)",
+        transform: hov ? "translate(3px,3px)" : "none",
+        color: hov ? "var(--accent-fg)" : "var(--text)",
       }}
     >
       <span className="text-2xl flex-shrink-0">{c.icon}</span>
       <div className="flex-1 min-w-0">
         <div
-          className="font-bold text-sm"
-          style={{ color: "var(--text)", fontFamily: "'Syne', sans-serif" }}
+          className="font-black text-sm uppercase tracking-wide"
+          style={{
+            color: hov ? "var(--accent-fg)" : "var(--text)",
+            fontFamily: "'Space Grotesk', sans-serif",
+          }}
         >
           {c.title}
         </div>
-        <div className="text-xs mt-0.5" style={{ color: "var(--muted)" }}>
+        <div
+          className="text-xs mt-0.5 font-semibold"
+          style={{
+            color: hov ? "var(--accent-fg)" : "var(--muted)",
+            opacity: hov ? 0.85 : 1,
+          }}
+        >
           {c.detail}
         </div>
       </div>
       <span
-        className="text-[10px] flex-shrink-0 transition-opacity duration-200"
+        className="text-[10px] font-black uppercase tracking-widest flex-shrink-0 transition-opacity duration-200"
         style={{
-          color: "var(--accent)",
+          color: hov ? "var(--accent-fg)" : "var(--accent)",
           opacity: hov ? 1 : 0,
-          fontFamily: "'JetBrains Mono', monospace",
+          fontFamily: "'Space Grotesk', sans-serif",
         }}
       >
-        verified ✓
+        VERIFIED ✓
       </span>
     </div>
   );
@@ -661,7 +705,7 @@ function SkillsSection() {
   return (
     <div>
       {/* Filter pills */}
-      <div className="flex flex-wrap gap-2 mb-5">
+      <div className="flex flex-wrap gap-2 mb-6">
         {["All", ...SKILLS.map((s) => s.label)].map((lbl) => {
           const isOn = lbl === "All" ? !active : active === lbl;
           return (
@@ -670,11 +714,14 @@ function SkillsSection() {
               onClick={() =>
                 setActive(lbl === "All" ? null : active === lbl ? null : lbl)
               }
-              className="rounded-full px-3.5 py-1 text-xs font-semibold border-0 cursor-pointer transition-all duration-150"
+              className="px-3 py-1 text-[11px] font-black uppercase tracking-widest border-2 cursor-pointer transition-all duration-150"
               style={{
                 background: isOn ? "var(--accent)" : "var(--tag)",
-                color: isOn ? "#fff" : "var(--tag-text)",
-                fontFamily: "'JetBrains Mono', monospace",
+                color: isOn ? "var(--accent-fg)" : "var(--tag-text)",
+                borderColor: "var(--border)",
+                boxShadow: isOn ? "none" : "2px 2px 0px var(--border)",
+                transform: isOn ? "translate(2px,2px)" : "none",
+                fontFamily: "'Space Grotesk', sans-serif",
               }}
             >
               {lbl}
@@ -682,29 +729,32 @@ function SkillsSection() {
           );
         })}
       </div>
-
-      {/* Cards grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+      {/* Grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {filtered.map(({ label, items }) => (
           <div
             key={label}
-            className="rounded-xl p-4 md:p-5 border transition-all duration-200"
-            style={{ background: "var(--card)", borderColor: "var(--border)" }}
+            className="border-2 p-4 transition-all duration-150"
+            style={{
+              background: "var(--card)",
+              borderColor: "var(--border)",
+              boxShadow: "var(--shadow)",
+            }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.borderColor = "var(--accent)";
-              e.currentTarget.style.boxShadow =
-                "0 0 18px rgba(var(--accent-rgb),0.15)";
+              e.currentTarget.style.boxShadow = "none";
+              e.currentTarget.style.transform = "translate(5px,5px)";
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.borderColor = "var(--border)";
-              e.currentTarget.style.boxShadow = "none";
+              e.currentTarget.style.boxShadow = "var(--shadow)";
+              e.currentTarget.style.transform = "none";
             }}
           >
             <div
-              className="text-[10.5px] font-bold uppercase tracking-widest mb-3"
+              className="text-[10px] font-black uppercase tracking-widest mb-3 pb-2 border-b-2"
               style={{
                 color: "var(--accent)",
-                fontFamily: "'JetBrains Mono', monospace",
+                borderColor: "var(--border)",
+                fontFamily: "'Space Grotesk', sans-serif",
               }}
             >
               {label}
@@ -722,42 +772,41 @@ function SkillsSection() {
 }
 
 /* ─── MAIN ───────────────────────────────────────────────────────────────── */
-export default function Portfolio() {
-  const [themeKey, setThemeKey] = useState("obsidian");
+export default function App() {
+  const [themeKey, setThemeKey] = useState("arctic");
   const [activeSection, setActiveSection] = useState("hero");
   const [copied, setCopied] = useState(false);
   const sections = ["hero", "skills", "experience", "projects", "education"];
-  const th = THEMES[themeKey];
 
-  /* Inject CSS vars on theme change */
+  /* Apply CSS vars */
   useEffect(() => {
-    const vars = Object.entries(th)
+    const vars = Object.entries(THEMES[themeKey])
       .filter(([k]) => k.startsWith("--"))
       .map(([k, v]) => `${k}:${v}`)
       .join(";");
     document.documentElement.style.cssText = vars;
   }, [themeKey]);
 
-  /* Google Fonts */
+  /* Fonts */
   useEffect(() => {
     if (!document.getElementById("pf-fonts")) {
       const l = document.createElement("link");
       l.id = "pf-fonts";
       l.rel = "stylesheet";
       l.href =
-        "https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600&family=Instrument+Serif:ital@0;1&display=swap";
+        "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap";
       document.head.appendChild(l);
     }
   }, []);
 
-  /* Active section tracking */
+  /* Section tracker */
   useEffect(() => {
     const obs = new IntersectionObserver(
       (entries) =>
         entries.forEach((e) => {
           if (e.isIntersecting) setActiveSection(e.target.id);
         }),
-      { threshold: 0.25 },
+      { threshold: 0.2 },
     );
     sections.forEach((id) => {
       const el = document.getElementById(id);
@@ -780,40 +829,47 @@ export default function Portfolio() {
       style={{
         background: "var(--bg)",
         color: "var(--text)",
-        fontFamily: "'Syne', sans-serif",
+        fontFamily: "'Space Grotesk', sans-serif",
       }}
     >
-      {/* Global styles */}
       <style>{`
         * { box-sizing: border-box; }
         body { margin: 0; }
         ul { list-style: none; padding: 0; margin: 0; }
         a { text-decoration: none; }
-        ::-webkit-scrollbar { width: 4px; }
-        ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
-        @keyframes scrollPulse { 0%,100%{opacity:1} 50%{opacity:.2} }
+        @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+        @keyframes scrollPulse { 0%,100%{opacity:1} 50%{opacity:.15} }
       `}</style>
 
       {/* ── NAVBAR ── */}
       <nav
-        className="fixed top-0 left-0 right-0 z-50 h-14 md:h-[60px] flex items-center justify-between px-4 sm:px-8 md:px-12 border-b backdrop-blur-md transition-colors duration-300"
-        style={{
-          background: "color-mix(in srgb, var(--surface) 88%, transparent)",
-          borderColor: "var(--border)",
-        }}
+        className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-4 sm:px-8 md:px-12 border-b-2 h-14 md:h-16 transition-colors duration-300"
+        style={{ background: "var(--bg)", borderColor: "var(--border)" }}
       >
         {/* Logo */}
-        <span
-          className="text-xl md:text-2xl italic"
+        <button
+          onClick={() => scrollTo("hero")}
+          className="font-black text-lg uppercase tracking-widest border-2 px-3 py-1 cursor-pointer bg-transparent transition-all duration-150"
           style={{
-            color: "var(--accent)",
-            fontFamily: "'Instrument Serif', serif",
+            color: "var(--accent-fg)",
+            background: "var(--accent)",
+            borderColor: "var(--border)",
+            boxShadow: "var(--shadow-sm)",
+            fontFamily: "'Space Mono', monospace",
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.boxShadow = "none";
+            e.currentTarget.style.transform = "translate(3px,3px)";
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.boxShadow = "var(--shadow-sm)";
+            e.currentTarget.style.transform = "none";
           }}
         >
-          rr.
-        </span>
+          RR
+        </button>
 
-        {/* Nav links – hidden on mobile */}
+        {/* Nav links */}
         <div className="hidden md:flex gap-1">
           {sections
             .filter((s) => s !== "hero")
@@ -821,10 +877,16 @@ export default function Portfolio() {
               <button
                 key={s}
                 onClick={() => scrollTo(s)}
-                className="capitalize px-3 py-1.5 rounded-md text-[12.5px] font-bold border-0 cursor-pointer bg-transparent transition-colors duration-150 tracking-wide"
+                className="capitalize px-3 py-1.5 text-xs font-black uppercase tracking-widest border-2 cursor-pointer transition-all duration-150 bg-transparent"
                 style={{
-                  color: activeSection === s ? "var(--accent)" : "var(--muted)",
-                  fontFamily: "'Syne', sans-serif",
+                  color:
+                    activeSection === s ? "var(--accent-fg)" : "var(--muted)",
+                  background:
+                    activeSection === s ? "var(--accent)" : "transparent",
+                  borderColor:
+                    activeSection === s ? "var(--border)" : "transparent",
+                  boxShadow: activeSection === s ? "var(--shadow-sm)" : "none",
+                  fontFamily: "'Space Grotesk', sans-serif",
                 }}
               >
                 {s}
@@ -832,42 +894,45 @@ export default function Portfolio() {
             ))}
         </div>
 
-        {/* Theme dot switcher */}
+        {/* Theme dots */}
         <div className="flex items-center gap-2">
           {Object.entries(THEMES).map(([key, t]) => (
             <button
               key={key}
               onClick={() => setThemeKey(key)}
               title={t.name}
-              className="rounded-full border-[2.5px] cursor-pointer p-0 transition-all duration-200"
+              className="border-2 cursor-pointer transition-all duration-150 p-0 flex-shrink-0"
               style={{
-                width: themeKey === key ? 20 : 17,
-                height: themeKey === key ? 20 : 17,
+                width: 18,
+                height: 18,
                 background: t.dot,
                 borderColor: themeKey === key ? "var(--text)" : "transparent",
-                transform: themeKey === key ? "scale(1.2)" : "scale(1)",
+                boxShadow:
+                  themeKey === key ? "2px 2px 0px var(--border)" : "none",
+                transform: themeKey === key ? "translate(-1px,-1px)" : "none",
               }}
             />
           ))}
         </div>
       </nav>
 
-      {/* ── CONTENT ── */}
-      <div className="max-w-4xl mx-auto px-4 sm:px-8 md:px-12">
+      {/* ── MAIN CONTENT ── */}
+      <div className="max-w-4xl mx-auto px-4 sm:px-8 md:px-12 pb-24">
         {/* ── HERO ── */}
         <section
           id="hero"
-          className="min-h-screen flex flex-col justify-center pt-16 md:pt-20 relative"
+          className="min-h-screen flex flex-col justify-center pt-20 md:pt-24 relative"
         >
           {/* Badge */}
-          <div className="mb-4">
+          <div className="mb-5 inline-block">
             <span
-              className="text-[11px] uppercase tracking-[0.15em] px-3 py-1 rounded border font-semibold"
+              className="text-[11px] font-black uppercase tracking-[0.18em] px-3 py-1.5 border-2"
               style={{
                 color: "var(--accent)",
-                background: "rgba(var(--accent-rgb),0.10)",
-                borderColor: "rgba(var(--accent-rgb),0.3)",
-                fontFamily: "'JetBrains Mono', monospace",
+                background: "var(--tag)",
+                borderColor: "var(--border)",
+                boxShadow: "2px 2px 0px var(--border)",
+                fontFamily: "'Space Mono', monospace",
               }}
             >
               Senior Frontend Engineer
@@ -876,42 +941,59 @@ export default function Portfolio() {
 
           {/* Name */}
           <h1
-            className="font-extrabold tracking-tighter leading-none mb-4"
+            className="font-black uppercase leading-none mb-6"
             style={{
-              fontSize: "clamp(44px, 9vw, 96px)",
+              fontSize: "clamp(52px, 10vw, 110px)",
+              letterSpacing: "-0.02em",
               color: "var(--text)",
-              fontFamily: "'Syne', sans-serif",
+              fontFamily: "'Space Grotesk', sans-serif",
             }}
           >
             Roshan
             <br />
             <span
-              className="italic font-normal"
               style={{
-                color: "var(--accent)",
-                fontFamily: "'Instrument Serif', serif",
+                color: "var(--accent-fg)",
+                background: "var(--accent)",
+                display: "inline-block",
+                padding: "0 12px",
+                boxShadow: "var(--shadow)",
+                fontFamily: "'Space Mono', monospace",
               }}
             >
-              Rai
+              RAI
             </span>
           </h1>
 
           {/* Tagline */}
           <p
-            className="text-sm md:text-base leading-relaxed mb-9 max-w-lg"
+            className="text-sm md:text-base leading-relaxed mb-8 max-w-md font-semibold"
             style={{ color: "var(--muted)" }}
           >
-            4+ years building enterprise-grade React applications. Specialized
-            in micro-frontend architecture, TypeScript, and squeezing every
-            millisecond of performance.
+            4+ years building enterprise React apps. Micro-frontend
+            architecture. TypeScript. Every millisecond counts.
           </p>
 
           {/* CTAs */}
-          <div className="flex flex-wrap gap-3 mb-11">
+          <div className="flex flex-wrap gap-3 mb-12">
             <a
               href="mailto:roshan95rai@gmail.com"
-              className="px-6 py-3 rounded-lg font-bold text-sm tracking-wide text-white transition-opacity duration-200 hover:opacity-85"
-              style={{ background: "var(--accent)" }}
+              className="px-5 py-3 font-black text-sm uppercase tracking-widest border-2 transition-all duration-150"
+              style={{
+                color: "var(--accent-fg)",
+                background: "var(--accent)",
+                borderColor: "var(--border)",
+                boxShadow: "var(--shadow)",
+                fontFamily: "'Space Mono', monospace",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.boxShadow = "none";
+                e.currentTarget.style.transform = "translate(5px,5px)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.boxShadow = "var(--shadow)";
+                e.currentTarget.style.transform = "none";
+              }}
             >
               Get in Touch
             </a>
@@ -919,49 +1001,72 @@ export default function Portfolio() {
               href="https://github.com/roshanraii"
               target="_blank"
               rel="noreferrer"
-              className="px-6 py-3 rounded-lg font-bold text-sm border transition-colors duration-200"
+              className="px-5 py-3 font-black text-sm uppercase tracking-widest border-2 bg-transparent transition-all duration-150"
               style={{
                 color: "var(--text)",
                 borderColor: "var(--border)",
-                background: "transparent",
+                boxShadow: "var(--shadow-sm)",
+                fontFamily: "'Space Mono', monospace",
               }}
-              onMouseEnter={(e) =>
-                (e.currentTarget.style.borderColor = "var(--accent)")
-              }
-              onMouseLeave={(e) =>
-                (e.currentTarget.style.borderColor = "var(--border)")
-              }
+              onMouseEnter={(e) => {
+                e.currentTarget.style.boxShadow = "none";
+                e.currentTarget.style.transform = "translate(3px,3px)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.boxShadow = "var(--shadow-sm)";
+                e.currentTarget.style.transform = "none";
+              }}
             >
               GitHub ↗
             </a>
             <button
               onClick={copy}
-              className="px-6 py-3 rounded-lg font-bold text-sm border cursor-pointer transition-colors duration-200 bg-transparent"
+              className="px-5 py-3 font-black text-sm uppercase tracking-widest border-2 cursor-pointer transition-all duration-150 bg-transparent"
               style={{
                 color: copied ? "var(--accent)" : "var(--muted)",
                 borderColor: "var(--border)",
-                fontFamily: "'Syne', sans-serif",
+                boxShadow: "2px 2px 0px var(--border)",
+                fontFamily: "'Space Mono', monospace",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.boxShadow = "none";
+                e.currentTarget.style.transform = "translate(2px,2px)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.boxShadow = "2px 2px 0px var(--border)";
+                e.currentTarget.style.transform = "none";
               }}
             >
-              {copied ? "✓ Copied!" : "Copy Email"}
+              {copied ? "✓ COPIED" : "COPY EMAIL"}
             </button>
           </div>
 
-          {/* Stats */}
-          <div className="flex flex-wrap gap-x-8 gap-y-4">
+          {/* Stats row */}
+          <div className="flex flex-wrap gap-3">
             {STATS.map(({ num, label }) => (
-              <div key={label}>
+              <div
+                key={label}
+                className="border-2 px-4 py-3 min-w-[90px]"
+                style={{
+                  background: "var(--card)",
+                  borderColor: "var(--border)",
+                  boxShadow: "var(--shadow-sm)",
+                }}
+              >
                 <div
-                  className="text-2xl md:text-3xl font-extrabold tracking-tight"
-                  style={{ color: "var(--accent)" }}
+                  className="text-2xl md:text-3xl font-black leading-none"
+                  style={{
+                    color: "var(--accent)",
+                    fontFamily: "'Space Mono', monospace",
+                  }}
                 >
                   {num}
                 </div>
                 <div
-                  className="text-[10px] uppercase tracking-widest mt-0.5"
+                  className="text-[9px] uppercase tracking-widest font-bold mt-1"
                   style={{
                     color: "var(--muted)",
-                    fontFamily: "'JetBrains Mono', monospace",
+                    fontFamily: "'Space Grotesk', sans-serif",
                   }}
                 >
                   {label}
@@ -971,18 +1076,18 @@ export default function Portfolio() {
           </div>
 
           {/* Scroll indicator */}
-          <div className="hidden md:flex absolute bottom-9 left-1/2 -translate-x-1/2 flex-col items-center gap-1.5">
+          <div className="hidden md:flex absolute bottom-10 left-1/2 -translate-x-1/2 flex-col items-center gap-1">
             <span
-              className="text-[10px] uppercase tracking-[0.12em]"
+              className="text-[9px] uppercase tracking-[0.2em] font-black"
               style={{
                 color: "var(--muted)",
-                fontFamily: "'JetBrains Mono', monospace",
+                fontFamily: "'Space Mono', monospace",
               }}
             >
               scroll
             </span>
             <div
-              className="w-px h-9"
+              className="w-px h-8"
               style={{
                 background: `linear-gradient(to bottom, var(--accent), transparent)`,
                 animation: "scrollPulse 1.5s ease-in-out infinite",
@@ -999,45 +1104,57 @@ export default function Portfolio() {
         {/* ── EXPERIENCE ── */}
         <Section id="experience" title="Professional Experience">
           {EXPERIENCE.map((job) => (
-            <div key={job.company} className="mb-5">
-              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline gap-0.5 sm:gap-0 mb-3">
+            <div key={job.company} className="mb-6">
+              {/* Company header */}
+              <div
+                className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-1 sm:gap-0 mb-4 p-3 border-2"
+                style={{
+                  background: "var(--card)",
+                  borderColor: "var(--border)",
+                  boxShadow: "var(--shadow-sm)",
+                }}
+              >
                 <span
-                  className="font-extrabold text-lg md:text-xl"
+                  className="font-black text-lg md:text-xl uppercase tracking-wide"
                   style={{
                     color: "var(--text)",
-                    fontFamily: "'Syne', sans-serif",
+                    fontFamily: "'Space Grotesk', sans-serif",
                   }}
                 >
                   {job.company}
                 </span>
                 <span
-                  className="text-xs"
+                  className="text-xs font-bold"
                   style={{
-                    color: "var(--muted)",
-                    fontFamily: "'JetBrains Mono', monospace",
+                    color: "var(--accent)",
+                    fontFamily: "'Space Mono', monospace",
                   }}
                 >
                   {job.companyPeriod}
                 </span>
               </div>
+              {/* Roles */}
               {job.roles.map((role) => (
                 <div
                   key={role.title}
-                  className="pl-3 md:pl-4 border-l-2 mb-4"
-                  style={{ borderColor: "var(--border)" }}
+                  className="pl-3 sm:pl-4 border-l-4 mb-4"
+                  style={{ borderColor: "var(--accent)" }}
                 >
-                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline gap-0.5 sm:gap-0 mb-2">
+                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-0.5 sm:gap-0 mb-2">
                     <span
-                      className="font-bold text-sm italic"
-                      style={{ color: "var(--text)" }}
+                      className="font-black text-sm uppercase tracking-wide"
+                      style={{
+                        color: "var(--text)",
+                        fontFamily: "'Space Grotesk', sans-serif",
+                      }}
                     >
                       {role.title}
                     </span>
                     <span
-                      className="text-[11px]"
+                      className="text-[11px] font-bold"
                       style={{
                         color: "var(--muted)",
-                        fontFamily: "'JetBrains Mono', monospace",
+                        fontFamily: "'Space Mono', monospace",
                       }}
                     >
                       {role.period}
@@ -1062,13 +1179,13 @@ export default function Portfolio() {
         {/* ── PROJECTS ── */}
         <Section id="projects" title="Projects">
           <p
-            className="text-[11px] mb-4"
+            className="text-[10px] font-black uppercase tracking-[0.15em] mb-4"
             style={{
               color: "var(--muted)",
-              fontFamily: "'JetBrains Mono', monospace",
+              fontFamily: "'Space Mono', monospace",
             }}
           >
-            click any card to flip for details ↺
+            click any card to flip ↺
           </p>
           {PROJECTS.map((p) => (
             <ProjectCard key={p.title} p={p} />
@@ -1078,25 +1195,26 @@ export default function Portfolio() {
         {/* ── EDUCATION & CERTS ── */}
         <Section id="education" title="Education & Certifications">
           <p
-            className="text-[10px] uppercase tracking-widest mb-3"
+            className="text-[10px] font-black uppercase tracking-[0.15em] mb-3"
             style={{
-              color: "var(--muted)",
-              fontFamily: "'JetBrains Mono', monospace",
+              color: "var(--accent)",
+              fontFamily: "'Space Mono', monospace",
             }}
           >
-            Education
+            ▶ Education
           </p>
           {EDUCATION.map((e) => (
             <EduRow key={e.degree} e={e} />
           ))}
+
           <p
-            className="text-[10px] uppercase tracking-widest mb-3 mt-7"
+            className="text-[10px] font-black uppercase tracking-[0.15em] mb-3 mt-7"
             style={{
-              color: "var(--muted)",
-              fontFamily: "'JetBrains Mono', monospace",
+              color: "var(--accent)",
+              fontFamily: "'Space Mono', monospace",
             }}
           >
-            Certifications
+            ▶ Certifications
           </p>
           {CERTS.map((c) => (
             <CertBadge key={c.title} c={c} />
@@ -1105,47 +1223,56 @@ export default function Portfolio() {
 
         {/* ── FOOTER ── */}
         <footer
-          className="border-t mt-16 pt-9 pb-12 flex flex-wrap justify-between items-center gap-4"
+          className="border-t-2 mt-20 pt-8 pb-6 flex flex-wrap justify-between items-center gap-4"
           style={{ borderColor: "var(--border)" }}
         >
           <span
-            className="italic text-xl"
+            className="font-black text-base uppercase tracking-widest px-3 py-1 border-2"
             style={{
-              color: "var(--accent)",
-              fontFamily: "'Instrument Serif', serif",
+              color: "var(--accent-fg)",
+              background: "var(--accent)",
+              borderColor: "var(--border)",
+              boxShadow: "var(--shadow-sm)",
+              fontFamily: "'Space Mono', monospace",
             }}
           >
-            rr.
+            RR
           </span>
           <div className="flex flex-wrap gap-4 md:gap-6">
             {[
-              ["LinkedIn", "https://www.linkedin.com/in/roshan-rai-a6b58a199/"],
-              ["GitHub", "https://github.com/roshanraii"],
-              ["Email", "mailto:roshan95rai@gmail.com"],
+              ["LINKEDIN", "https://www.linkedin.com/in/roshan-rai-a6b58a199/"],
+              ["GITHUB", "https://github.com/roshanraii"],
+              ["EMAIL", "mailto:roshan95rai@gmail.com"],
             ].map(([label, href]) => (
               <a
                 key={label}
                 href={href}
                 target="_blank"
                 rel="noreferrer"
-                className="text-sm font-bold transition-colors duration-150"
-                style={{ color: "var(--muted)" }}
-                onMouseEnter={(e) =>
-                  (e.currentTarget.style.color = "var(--accent)")
-                }
-                onMouseLeave={(e) =>
-                  (e.currentTarget.style.color = "var(--muted)")
-                }
+                className="text-xs font-black uppercase tracking-widest border-b-2 pb-0.5 transition-colors duration-150"
+                style={{
+                  color: "var(--muted)",
+                  borderColor: "transparent",
+                  fontFamily: "'Space Grotesk', sans-serif",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.color = "var(--accent)";
+                  e.currentTarget.style.borderColor = "var(--accent)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.color = "var(--muted)";
+                  e.currentTarget.style.borderColor = "transparent";
+                }}
               >
                 {label}
               </a>
             ))}
           </div>
           <span
-            className="text-xs"
+            className="text-[10px] font-bold uppercase tracking-widest"
             style={{
               color: "var(--muted)",
-              fontFamily: "'JetBrains Mono', monospace",
+              fontFamily: "'Space Mono', monospace",
             }}
           >
             Faridabad, India
@@ -1153,18 +1280,21 @@ export default function Portfolio() {
         </footer>
       </div>
 
-      {/* ── Side nav dots (desktop) ── */}
+      {/* ── Side nav (desktop) ── */}
       <div className="hidden md:flex fixed right-5 top-1/2 -translate-y-1/2 flex-col gap-2 z-50">
         {sections.map((s) => (
           <button
             key={s}
             onClick={() => scrollTo(s)}
             title={s}
-            className="rounded h-2 border-0 cursor-pointer p-0 transition-all duration-300"
+            className="border-2 cursor-pointer p-0 transition-all duration-200"
             style={{
               width: activeSection === s ? 28 : 8,
-              background:
-                activeSection === s ? "var(--accent)" : "var(--border)",
+              height: 8,
+              background: activeSection === s ? "var(--accent)" : "var(--tag)",
+              borderColor: "var(--border)",
+              boxShadow:
+                activeSection === s ? "2px 2px 0px var(--border)" : "none",
             }}
           />
         ))}
