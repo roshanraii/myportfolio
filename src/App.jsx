@@ -1119,7 +1119,7 @@ export default function Portfolio() {
           </span>
           <div className="flex flex-wrap gap-4 md:gap-6">
             {[
-              ["LinkedIn", "https://linkedin.com/in/roshan-rai"],
+              ["LinkedIn", "https://www.linkedin.com/in/roshan-rai-a6b58a199/"],
               ["GitHub", "https://github.com/roshanraii"],
               ["Email", "mailto:roshan95rai@gmail.com"],
             ].map(([label, href]) => (
