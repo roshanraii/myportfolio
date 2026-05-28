@@ -998,7 +998,7 @@ export default function App() {
               Get in Touch
             </a>
             <a
-              href="https://github.com/roshanraii"
+              href="https://www.linkedin.com/in/roshan-rai-a6b58a199/"
               target="_blank"
               rel="noreferrer"
               className="px-5 py-3 font-black text-sm uppercase tracking-widest border-2 bg-transparent transition-all duration-150"
@@ -1017,7 +1017,7 @@ export default function App() {
                 e.currentTarget.style.transform = "none";
               }}
             >
-              GitHub ↗
+              LinkedIn ↗
             </a>
             <button
               onClick={copy}
