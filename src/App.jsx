@@ -685,7 +685,7 @@ export default function Portfolio() {
             <div className="flex gap-2.5 flex-wrap">
               <ContactBtn
                 label="Email me"
-                href="mailto:roshanraii@gmail.com"
+                href="mailto:roshan95rai@gmail.com"
                 primary
                 dark={dark}
               />
