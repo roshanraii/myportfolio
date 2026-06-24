@@ -393,13 +393,16 @@ export default function Portfolio() {
       icon: <IconLinkedin />,
       label: "LinkedIn",
       onClick: () =>
-        window.open("https://linkedin.com/in/roshanraii", "_blank"),
+        window.open(
+          "https://www.linkedin.com/in/roshan-rai-a6b58a199/",
+          "_blank",
+        ),
     },
     {
       icon: <IconMail />,
       label: "Email",
       onClick: () => {
-        window.location.href = "mailto:roshanraii@gmail.com";
+        window.location.href = "mailto:roshan95rai@gmail.com";
       },
     },
     {
