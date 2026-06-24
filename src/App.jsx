@@ -387,15 +387,13 @@ export default function Portfolio() {
     {
       icon: <IconGithub />,
       label: "GitHub",
-      onClick: () => window.open("https://github.com/roshanraii", "_blank"),
+      onClick: () => window.open("https://github.com/roshanraii"),
     },
     {
       icon: <IconLinkedin />,
       label: "LinkedIn",
       onClick: () =>
-        window.open(
-          "https://www.linkedin.com/in/roshan-rai-a6b58a199/",
-          "_blank",
+        window.open("https://www.linkedin.com/in/roshan-rai-a6b58a199/",
         ),
     },
     {
@@ -456,7 +454,11 @@ export default function Portfolio() {
             className={`w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden flex items-center justify-center mb-5 shrink-0 border-4 outline outline-1
             ${dark ? "bg-zinc-800 border-zinc-950 outline-zinc-700" : "bg-zinc-100 border-white outline-zinc-200"}`}
           >
-            <img src={profile} className="w-full h-full object-cover" alt="Roshan Rai" />
+            <img
+              src={profile}
+              className="w-full h-full object-cover"
+              alt="Roshan Rai"
+            />
           </div>
           <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight mb-2.5 leading-tight">
             Hi, I'm Roshan
@@ -494,18 +496,14 @@ export default function Portfolio() {
             ))}
           </nav>
           <div className="flex gap-3.5">
+            <SocialLink href="https://github.com/roshanraii" icon={<IconGithub />} dark={dark} />
             <SocialLink
-              href="https://github.com/roshanraii"
-              icon={<IconGithub />}
-              dark={dark}
-            />
-            <SocialLink
-              href="https://linkedin.com/in/roshanraii"
+              href="https://www.linkedin.com/in/roshan-rai-a6b58a199/"
               icon={<IconLinkedin />}
               dark={dark}
             />
             <SocialLink
-              href="mailto:roshanraii@gmail.com"
+              href="mailto:roshan95rai@gmail.com"
               icon={<IconMail />}
               dark={dark}
             />
