@@ -542,7 +542,7 @@ export default function Portfolio() {
                 >
                   Nagarro
                 </strong>{" "}
-                with 5 years of experience building enterprise-grade UIs. I've
+                with 5+ years of experience building enterprise-grade UIs. I've
                 progressed from intern through senior, working across automotive
                 and non-profit clients.
               </p>
