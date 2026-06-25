@@ -1,5 +1,9 @@
 import { useState, useEffect } from "react";
 import profile from "../src/assets/roshanprofile.jpeg";
+import resumePDF from "../src/assets/roshanresume.pdf";
+import nagarroLogo from "../src/assets/nagarro.jpeg";
+import jcboseLogo from "../src/assets/Jcbose.jpeg";
+import mduLogo from "../src/assets/mdu.png";
 
 const SECTIONS = [
   "about",
@@ -13,28 +17,28 @@ const SECTIONS = [
 const WORK = [
   {
     company: "Nagarro",
-    initials: "N",
+    logo: nagarroLogo,
     role: "Senior Frontend Engineer",
     period: "2024 – Present",
     desc: "Developed and optimized scalable React.js applications with a focus on performance, usability, and maintainability. Built an enterprise task management platform using React, Tailwind CSS, and React Query, improving operational efficiency by 25% and reducing redundant API calls by 40%. Contributed to architectural decisions, reusable component design, and frontend best practices to deliver high-quality user experiences.",
   },
   {
     company: "Nagarro",
-    initials: "N",
+    logo: nagarroLogo,
     role: "Frontend Engineer",
     period: "2023 – 2024",
     desc: "Built reusable React component systems and led performance optimisation initiatives across multiple client projects.",
   },
   {
     company: "Nagarro",
-    initials: "N",
+    logo: nagarroLogo,
     role: "Associate Engineer",
     period: "2022 – 2023",
     desc: "Developed UI features for a Dealer Management System serving an automotive client with thousands of daily users.",
   },
   {
     company: "Nagarro",
-    initials: "N",
+    logo: nagarroLogo,
     role: "Intern",
     period: "2021 – 2022",
     desc: "Started as a frontend intern, quickly ramped on React and TypeScript in an enterprise environment.",
@@ -45,13 +49,14 @@ const EDUCATION = [
   {
     school:
       "Master of Computer Applications- J.C. Bose University of Science and Technology, YMCA",
+    logo: jcboseLogo,
     detail: "2018 – 2021",
-    emoji: "🎓",
   },
   {
-    school:"Bachelor of Computer Applications- Maharshi Dayanand University - Rohtak",
+    school:
+      "Bachelor of Computer Applications- Maharshi Dayanand University - Rohtak",
+    logo: mduLogo,
     detail: "2015 – 2018",
-    emoji: "🎓",
   },
 ];
 
@@ -246,7 +251,7 @@ function useActiveSection() {
   return active;
 }
 
-// ── Sub-components (each has its own hooks — no hooks in map) ─────────────────
+// ── Sub-components ────────────────────────────────────────────────────────────
 
 function Badge({ text, dark }) {
   return (
@@ -345,11 +350,12 @@ function SocialLink({ href, icon, dark }) {
   );
 }
 
-function ContactBtn({ label, href, primary, dark }) {
+function ContactBtn({ label, href, primary, dark, download }) {
   return (
     <a
       href={href}
-      target={primary ? undefined : "_blank"}
+      download={download || undefined}
+      target={primary || download ? undefined : "_blank"}
       rel="noreferrer"
       className={`inline-flex items-center gap-1.5 px-4 py-2 rounded-lg text-[13px] font-medium no-underline transition-all duration-150
         ${
@@ -393,8 +399,7 @@ export default function Portfolio() {
       icon: <IconLinkedin />,
       label: "LinkedIn",
       onClick: () =>
-        window.open("https://www.linkedin.com/in/roshan-rai-a6b58a199/",
-        ),
+        window.open("https://www.linkedin.com/in/roshan-rai-a6b58a199/"),
     },
     {
       icon: <IconMail />,
@@ -439,7 +444,7 @@ export default function Portfolio() {
         <div
           className="absolute inset-0 z-0"
           style={{
-            backgroundImage: `radial-gradient(circle, ${dotColor} 1px, transparent 1px)`,
+            backgroundImage: `radial-gradient(circle, ${dotColor} 1.5px, transparent 1.5px)`,
             backgroundSize: "20px 20px",
             maskImage:
               "radial-gradient(ellipse 100% 100% at 50% 0%, black 30%, transparent 100%)",
@@ -496,7 +501,11 @@ export default function Portfolio() {
             ))}
           </nav>
           <div className="flex gap-3.5">
-            <SocialLink href="https://github.com/roshanraii" icon={<IconGithub />} dark={dark} />
+            <SocialLink
+              href="https://github.com/roshanraii"
+              icon={<IconGithub />}
+              dark={dark}
+            />
             <SocialLink
               href="https://www.linkedin.com/in/roshan-rai-a6b58a199/"
               icon={<IconLinkedin />}
@@ -533,7 +542,7 @@ export default function Portfolio() {
                 >
                   Nagarro
                 </strong>{" "}
-                with 4+ years of experience building enterprise-grade UIs. I've
+                with 5 years of experience building enterprise-grade UIs. I've
                 progressed from intern through senior, working across automotive
                 and non-profit clients.
               </p>
@@ -571,10 +580,15 @@ export default function Portfolio() {
               {WORK.map((item, i) => (
                 <div key={i} className="flex gap-3.5">
                   <div
-                    className={`w-9 h-9 rounded-full shrink-0 flex items-center justify-center text-[13px] font-bold mt-0.5 border
-                    ${dark ? "bg-zinc-800 border-zinc-700 text-zinc-400" : "bg-zinc-100 border-zinc-200 text-zinc-500"}`}
+                    className={`w-9 h-9 rounded-full shrink-0 flex items-center justify-center overflow-hidden mt-0.5 border
+                    ${dark ? "bg-white border-zinc-700" : "bg-white border-zinc-200"}`}
                   >
-                    {item.initials}
+                    <img
+                      src={item.logo}
+                      alt={item.company}
+                      className="w-full h-full object-contain p-1
+                      "
+                    />
                   </div>
                   <div className="flex-1">
                     <div className="flex justify-between flex-wrap gap-1 mb-0.5">
@@ -615,10 +629,14 @@ export default function Portfolio() {
             {EDUCATION.map((edu, i) => (
               <div key={i} className="flex gap-3.5 items-center pb-3">
                 <div
-                  className={`w-9 h-9 rounded-full shrink-0 flex items-center justify-center text-lg border 
-                  ${dark ? "bg-zinc-800 border-zinc-700" : "bg-zinc-100 border-zinc-200"}`}
+                  className={`w-9 h-9 rounded-full shrink-0 flex items-center justify-center overflow-hidden border
+                  ${dark ? "bg-white border-zinc-700" : "bg-white border-zinc-200"}`}
                 >
-                  {edu.emoji}
+                  <img
+                    src={edu.logo}
+                    alt={edu.school}
+                    className="w-full h-full object-contain p-1 "
+                  />
                 </div>
                 <div>
                   <p
@@ -690,8 +708,9 @@ export default function Portfolio() {
                 dark={dark}
               />
               <ContactBtn
-                label="Portfolio →"
-                href="https://roshanraii.github.io/myportfolio"
+                label="Download Resume ↓"
+                href={resumePDF}
+                download
                 dark={dark}
               />
             </div>
