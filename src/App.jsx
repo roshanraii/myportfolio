@@ -110,7 +110,7 @@ const PROJECTS = [
     period: "2024",
     desc: "Full-stack library system on AWS — Elastic Beanstalk, RDS, S3, Lambda, GitHub Actions CI/CD.",
     tags: ["Node.js", "React", "AWS", "MySQL"],
-    link: "#",
+    link: "https://github.com/roshanraii/bibliotheca",
   },
   {
     title: "NexTask",
